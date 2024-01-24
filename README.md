@@ -13,7 +13,7 @@
 ## 安装脚本
 如果出现安装失败，请全格重装系统，手动更新yum源后重新执行安装脚本即可。
 ```shell script
-wget --no-check-certificate -O fast.bin https://raw.githubusercontent.com/Shirley-Jones/daloradius-boya/master/boya.sh && chmod +x ./boya.sh && ./boya.sh
+wget --no-check-certificate -O boya.sh https://raw.githubusercontent.com/Shirley-Jones/daloradius-boya/main/boya.sh && chmod +x ./boya.sh && ./boya.sh
 ```
 
 ## 常用命令
