@@ -2,7 +2,7 @@
 #Project address: https://github.com/Shirley-Jones/daloradius-boya
 #Thank you very much for using this project!
 #博雅情韵QQ: 2223139086
-#Shirley后期修复编写1
+#Shirley后期修复编写
 
 Download_address_selection()
 {
