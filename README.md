@@ -7,7 +7,6 @@
 * 网络：必须具有固定公网IP（IPV4）
 
 ## 更新日志
-* 最后更新时间 2024.01.22
 * 具体的更新日志请访问 https://github.com/Shirley-Jones/daloradius-boya/blob/main/Update_log.md
 
 
