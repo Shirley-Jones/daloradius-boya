@@ -32,7 +32,7 @@ Download_address_selection()
 	
 	if [[ ${Download_address_Option} == "2" ]];then
 		echo "已选择【私有源】"
-		Download_Host="https://api.qiaouu.com/shell/boya_daloradius/$Boya_Version"
+		Download_Host=""
 	fi
 	
 	return 0;
@@ -586,8 +586,10 @@ Install_boya_daloradius()
 	iptables -A INPUT -d 127.0.0.1/32  -j ACCEPT
 	#SSH端口
 	iptables -A INPUT -p tcp -m tcp --dport ${SSH_Port} -j ACCEPT
-	#Apache端口
-	iptables -A INPUT -p tcp -m tcp --dport ${Apache_Port} -j ACCEPT
+	if [[ ${Installation_mode} ==  "ALL" ]]; then 
+		#Apache端口
+		iptables -A INPUT -p tcp -m tcp --dport ${Apache_Port} -j ACCEPT
+	fi
 	#OpenVPN端口
 	iptables -A INPUT -p tcp -m tcp --dport 1194 -j ACCEPT
 	iptables -A INPUT -p tcp -m tcp --dport 1195 -j ACCEPT
