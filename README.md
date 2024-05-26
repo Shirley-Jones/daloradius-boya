@@ -7,9 +7,7 @@
 * 网络：必须具有固定公网IP（IPV4）
 
 ## 更新日志
-## 2024.05.20
-* 基于CentOS7系统的freeradius3.0.12版本适配openvpn认证已发布！
-* 
+* 基于CentOS7系统的freeradius3.0.12+openvpn版本已发布！
 * 具体的更新日志请访问 https://github.com/Shirley-Jones/daloradius-boya/blob/main/Update_log.md
 
 
