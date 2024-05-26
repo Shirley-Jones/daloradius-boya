@@ -1023,16 +1023,16 @@ Uninstall_boya_daloradius()
 	
 	read -p "确认卸载博雅DALO程序吗[Y/N]: " Uninstall_Confirmation
 	
-	if [[ ${Uninstall_Confirmation} == "y" ]] && [[ ${Uninstall_Confirmation} == "Y" ]]; then
+	if [[ ${Uninstall_Confirmation} == "y" ]] || [[ ${Uninstall_Confirmation} == "Y" ]]; then
 		vpn stop
-		systemctl disable proxy.service
-		systemctl disable auto_run.service
 		rpm -e remi-release-7.9-6.el7.remi.noarch
 		yum remove php* -y
 		yum remove httpd httpd-tools mariadb mariadb-server mariadb-devel -y
 		yum remove freeradius freeradius-devel freeradius-utils freeradius-mysql freeradius-doc -y
-		yum remove iptables iptables-services dnsmasq openvpn openvpn-devel -y 
+		yum remove dnsmasq openvpn openvpn-devel -y 
 		yum remove epel-release -y
+		systemctl disable proxy.service
+		systemctl disable auto_run.service
 		rm -rf /lib/systemd/system/auto_run.service
 		rm -rf /lib/systemd/system/proxy.service
 		systemctl daemon-reload
@@ -1047,6 +1047,18 @@ Uninstall_boya_daloradius()
 		rm -rf /etc/my.cnf
 		rm -rf /var/lib/mysql
 		rm -rf /var/lib64/mysql
+		iptables -F
+		iptables -P INPUT ACCEPT
+		iptables -P FORWARD ACCEPT
+		iptables -P OUTPUT ACCEPT
+		iptables -t nat -P PREROUTING ACCEPT
+		iptables -t nat -P POSTROUTING ACCEPT
+		iptables -t nat -P OUTPUT ACCEPT
+		iptables -t nat -F
+		iptables -X
+		iptables -t nat -X
+		service iptables save >/dev/null 2>&1
+		systemctl restart iptables.service
 		echo "卸载完成，回车重启服务器保证MYSQL完整卸载!!!"
 		read
 		reboot
