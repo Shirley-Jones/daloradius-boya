@@ -129,6 +129,7 @@ Detect_server_IP_address()
 		exit 1;
 	else
 		#已获取到信息
+		Auth_MD5=$(echo -n "${Server_IP}" | md5sum | awk '{print $1}');
 		echo
 		echo -e "检测到您的IP为: \033[1;33m"${Server_IP}"\033[0m 如不正确请立刻停止搭建，回车继续！"
 		read
@@ -365,6 +366,42 @@ Install_node_guide()
 		read -p "请输入主机IP: " radius_address
 	done
 	
+	sleep 1
+	echo "-------------流量监控数据库配置-------------"
+	sleep 1
+	echo
+	read -p "请输入主机/云数据库地址: " Database_Address
+	while [[ ${Database_Address} == "" ]]
+	do
+		echo -e "\033[31m检测到数据库地址没有输入，请重新尝试！\033[0m"
+		read -p "请输入主机/云数据库地址: " Database_Address
+	done
+	
+	echo
+	read -p "请输入主机/云数据库端口: " Database_Port
+	while [[ ${Database_Port} == "" ]]
+	do
+		echo -e "\033[31m检测到数据库端口没有输入，请重新尝试！\033[0m"
+		read -p "请输入主机/云数据库端口: " Database_Port
+	done
+	
+	echo
+	read -p "请输入主机/云数据库账户: " Database_Username
+	while [[ ${Database_Username} == "" ]]
+	do
+		echo -e "\033[31m检测到数据库账户没有输入，请重新尝试！\033[0m"
+		read -p "请输入主机/云数据库账户: " Database_Username
+	done
+	echo
+	read -p "请输入主机/云数据库密码: " Database_Password
+	while [[ ${Database_Password} == "" ]]
+	do
+		echo -e "\033[31m检测到数据库密码没有输入，请重新尝试！\033[0m"
+		read -p "请输入主机/云数据库密码: " Database_Password
+	done
+	sleep 1
+	echo "-------------已完成流量监控数据库配置-------------"
+	sleep 1
 	echo "请选择DNS地址"
 	echo "1、阿里云 DNS"
 	echo "2、114 DNS"
@@ -490,8 +527,7 @@ Install_boya_daloradius()
 		systemctl start mariadb.service >/dev/null 2>&1
 		mysqladmin -uroot password ${Database_Password}
 		mysql -uroot -p${Database_Password} -e 'create database radius;'
-		#此段是开启数据库公网访问权限  radius负载不需要使用此选项
-		#mysql -uroot -p${Database_Password} -e "use mysql;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '"${Database_Password}"' WITH GRANT OPTION;flush privileges;"
+		mysql -uroot -p${Database_Password} -e "use mysql;GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '"${Database_Password}"' WITH GRANT OPTION;flush privileges;"
 		systemctl restart mariadb.service
 		systemctl enable mariadb.service >/dev/null 2>&1
 		
@@ -645,8 +681,13 @@ Install_boya_daloradius()
 		sed -i 's/content3/root/g' /Shirley/Config/MySQL.conf
 		sed -i 's/content4/'${Database_Password}'/g' /Shirley/Config/MySQL.conf
 		sed -i 's/content1/Install_All/g' /Shirley/Config/Config.conf
+		#修改流量监控配置
+		sed -i 's/content1/127.0.0.1/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content2/3306/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content3/root/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content4/'${Database_Password}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content5/'${Auth_MD5}'/g' /Shirley/Config/auth_config.conf
 	fi
-	
 	
 	
 	#配置sysctl
@@ -668,6 +709,12 @@ Install_boya_daloradius()
 		sed -i 's/name=localhost/name='${radius_address}'/g' /etc/openvpn/radiusplugin_server1197.cnf
 		sed -i 's/name=localhost/name='${radius_address}'/g' /etc/openvpn/radiusplugin_server-udp.cnf
 		sed -i 's/content1/Install_Node/g' /Shirley/Config/Config.conf
+		#修改流量监控配置
+		sed -i 's/content1/'${Database_Address}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content2/'${Database_Port}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content3/'${Database_Username}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content4/'${Database_Password}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content5/'${Auth_MD5}'/g' /Shirley/Config/auth_config.conf
 	fi
 	
 	#重启openvpn
