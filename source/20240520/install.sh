@@ -129,7 +129,6 @@ Detect_server_IP_address()
 		exit 1;
 	else
 		#已获取到信息
-		Auth_MD5=$(echo -n "${Server_IP}" | md5sum | awk '{print $1}');
 		echo
 		echo -e "检测到您的IP为: \033[1;33m"${Server_IP}"\033[0m 如不正确请立刻停止搭建，回车继续！"
 		read
@@ -686,7 +685,7 @@ Install_boya_daloradius()
 		sed -i 's/content2/3306/g' /Shirley/Config/auth_config.conf
 		sed -i 's/content3/root/g' /Shirley/Config/auth_config.conf
 		sed -i 's/content4/'${Database_Password}'/g' /Shirley/Config/auth_config.conf
-		sed -i 's/content5/'${Auth_MD5}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content5/'${Server_IP}'/g' /Shirley/Config/auth_config.conf
 	fi
 	
 	
@@ -714,7 +713,7 @@ Install_boya_daloradius()
 		sed -i 's/content2/'${Database_Port}'/g' /Shirley/Config/auth_config.conf
 		sed -i 's/content3/'${Database_Username}'/g' /Shirley/Config/auth_config.conf
 		sed -i 's/content4/'${Database_Password}'/g' /Shirley/Config/auth_config.conf
-		sed -i 's/content5/'${Auth_MD5}'/g' /Shirley/Config/auth_config.conf
+		sed -i 's/content5/'${Server_IP}'/g' /Shirley/Config/auth_config.conf
 	fi
 	
 	#重启openvpn
