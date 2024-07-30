@@ -18,28 +18,10 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 ```
 
 ## 常用命令
-
 > 重启流控 vpn restart
-
 > 开端口 vpn port
-
 > 系统工具 vpn tools
-
 > 系统负载 vpn tools 选择系统负载选项
-
-> 查系统版本 cat /etc/redhat-release
-
-> 查端口开启 netstat -nulp  
-
-> 查服务器时间 date
-
-> 改服务器时间 date -s 09/01/2021
-
-> 禁止ping echo 1 >/proc/sys/net/ipv4/icmp_echo_ignore_all
-
-> 允许ping echo 0 >/proc/sys/net/ipv4/icmp_echo_ignore_all
-
-> 查web端口 netstat -nutlp | grep httpd
 
 
 ## 免责声明
