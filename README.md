@@ -19,8 +19,11 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 
 ## 常用命令
 > 重启流控 vpn restart
+
 > 开端口 vpn port
+
 > 系统工具 vpn tools
+
 > 系统负载 vpn tools 选择系统负载选项
 
 
