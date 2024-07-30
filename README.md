@@ -47,16 +47,14 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 * 这个版本为Shirley后期修复编写，并且它只支持CentOS7 X64 !!!
 * 本脚本仅用于学习交流，禁止商业，下载安装后请在24小时内删除！
 * 流控版权为情韵(博雅)所有！！
-* 博雅DALO流控官网: https://www.52hula.cn
+* 博雅DALO流控官网: https://www.52hula.cn (已下线)
 * 项目基于博雅Dalo开源而来，我个人没有加入任何后门，脚本已全部开源，欢迎检查，不放心的不要用，谢谢！（FAS的Proxy代理 C语言文件 筑梦冬瓜 没有开源，我也没有！）
 ## 温馨提醒
 * 脚本资源下载地址请搜索 Download_Host 变量 自行替换！下载地址末尾不加斜杆，否则搭建会报错
-* 其他功能等有空再更新，谢谢
 * 
 * 任何问题不要问我，不要问我，不要问我。
 * 任何问题不要问我，不要问我，不要问我。
 * 任何问题不要问我，不要问我，不要问我。
-* 脚本问题请反馈至: xshirleyjones02@gmail.com (仅处理脚本搭建报错问题，Bug等问题。)
 
 
 
