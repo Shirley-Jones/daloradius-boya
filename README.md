@@ -1,4 +1,4 @@
-# 博雅DALO流控|Shirley后期修复编写|支持CentOS7
+# 博雅DALO流控|Shirley后期修复编写|CentOS7+freeradius3.0.12新版来袭!
 
 ## 准备工作
 * 准备一台CentOS7 x64服务器 (推荐腾讯云 阿里云 IDC大宽带)
@@ -7,7 +7,6 @@
 * 网络：必须具有固定公网IP（IPV4）
 
 ## 更新日志
-* 基于CentOS7系统的freeradius3.0.12+openvpn版本已发布！
 * 具体的更新日志请访问 https://github.com/Shirley-Jones/daloradius-boya/blob/main/Update_log.md
 
 
