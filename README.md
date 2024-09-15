@@ -37,7 +37,7 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 ## 关于源码
 * 项目基于博雅Dalo开源而来，我个人没有加入任何后门，脚本已全部开源，欢迎检查，不放心的不要用，谢谢！
 * Proxy代理文件基于 FAS的Proxy代理 (这个是C语言文件 FAS作者: 筑梦冬瓜 没有开放源码，我也没有!!!) 
-* 监控文件暂时不考虑开源，谢谢，如果不放心怕有后门什么的，请直接删除即可 rm -rf /Shirley/Core/Zero_Auth.bin
+* 用户流量监控文件暂时不考虑开源，谢谢，如果不放心怕有后门什么的，请直接删除即可 rm -rf /Shirley/Core/Zero_Auth.bin (这个只是监控用户流量和天数的作用)
 
   
 ## 温馨提醒
