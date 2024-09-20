@@ -1,4 +1,4 @@
-# 博雅DALO流控|Shirley后期修复编写|CentOS7+freeradius3.0.12新版来袭!
+# 博雅DALO流控|Shirley后期修复编写|全新用户流量监控|CentOS7+freeradius3.0.12新版来袭!
 
 ## 准备工作
 * 准备一台CentOS7 x64服务器 (推荐腾讯云 阿里云 IDC大宽带)
