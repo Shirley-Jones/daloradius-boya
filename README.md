@@ -37,11 +37,12 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 ## 关于源码
 * 项目基于博雅Dalo开源而来，我个人没有加入任何后门，脚本已全部开源，欢迎检查，不放心的不要用，谢谢！
 * Proxy代理文件基于 FAS的Proxy代理 (这个是C语言文件 FAS作者: 筑梦冬瓜 没有开放源码，我也没有!!!)
-* 用户流量监控已开源，详情下方
+* 用户流量监控已开源，如果你需要重新编译详情下方
 
 
 
 ## 用户流量监控文件说明
+* 编译说明
 * 先安装支持库: yum install mariadb-devel curl libcurl-devel openssl openssl-devel gcc gcc++ gdb -y
 * 编译 gcc -std=gnu99 监控源码文件 -o 编译后的文件名 -L/usr/lib64/mysql/ -lmysqlclient  -lcurl -lcrypto
 * 举个例子 gcc -std=gnu99 /root/zero_auth_daloradius1.3.c -o /root/ZeroAUTH.bin -L/usr/lib64/mysql/ -lmysqlclient  -lcurl -lcrypto
