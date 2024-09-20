@@ -10,7 +10,7 @@ Download_address_selection()
 	echo
 	echo "请选择下载地址"
 	echo "1、Github"
-	echo "2、私有源"
+	echo "2、Shirley's (服务器有效期至2025-02-12 00:00:00) "
 	read -p "请选择[1-2]: " Download_address_Option
 	
 	while [[ ${Download_address_Option} == "" ]]
@@ -18,7 +18,7 @@ Download_address_selection()
 		echo -e "\033[31m检测到下载地址没有选择，请重新尝试！\033[0m"
 		echo "请选择下载地址"
 		echo "1、Github"
-		echo "2、私有源"
+		echo "2、Shirley's (服务器有效期至2025-02-12 00:00:00) "
 		read -p "请选择[1-2]: " Download_address_Option
 	done
 	
@@ -31,8 +31,8 @@ Download_address_selection()
 	fi
 	
 	if [[ ${Download_address_Option} == "2" ]];then
-		echo "已选择【私有源】"
-		Download_Host=""
+		echo "已选择【Shirley's】"
+		Download_Host="http://api.qiaouu.top/shell/boya_resources/$Boya_Version"
 	fi
 	
 	return 0;
@@ -675,10 +675,6 @@ Install_boya_daloradius()
 	
 	#修改监控数据库配置
 	if [[ ${Installation_mode} ==  "ALL" ]]; then 
-		sed -i 's/content1/127.0.0.1/g' /Shirley/Config/MySQL.conf
-		sed -i 's/content2/3306/g' /Shirley/Config/MySQL.conf
-		sed -i 's/content3/root/g' /Shirley/Config/MySQL.conf
-		sed -i 's/content4/'${Database_Password}'/g' /Shirley/Config/MySQL.conf
 		sed -i 's/content1/Install_All/g' /Shirley/Config/Config.conf
 		#修改流量监控配置
 		sed -i 's/content1/127.0.0.1/g' /Shirley/Config/auth_config.conf
