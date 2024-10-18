@@ -21,7 +21,7 @@ Download_address_selection()
 	
 	# 下载地址请在此设置，其他配置请不要乱动。
 	Download_Host_One="https://raw.githubusercontent.com/Shirley-Jones/daloradius-boya/main/source/$Boya_Version"
-	Download_Host_Two="https://api.qiaouu.top/shell/daloradius-boya/$Boya_Version"
+	Download_Host_Two="http://api.qiaouu.top/shell/daloradius-boya/$Boya_Version"
 	
 	# 下载地址备注/名称
 	Download_Host_One_Name="Github";
@@ -1260,7 +1260,6 @@ EOF
 	make >/dev/null 2>&1
 	if [ ! -f /etc/openvpn/radiusplugin_v2.1a_beta1/radiusplugin.so ]; then
 		echo "OpenVPN Radius认证插件编译失败,请等待脚本运行完成后尝试手动编译文件到 /etc/openvpn/radiusplugin_v2.1a_beta1/radiusplugin.so"
-		exit 1;
 	else
 		mv /etc/openvpn/radiusplugin_v2.1a_beta1/radiusplugin.so /etc/openvpn/radiusplugin.so
 		chmod -R 0777 /etc/openvpn/radiusplugin.so
