@@ -8,13 +8,8 @@ Installation_Selection()
 {
 	clear
 	echo
-	#选项栏
-	echo -e "\033[1;34m使用说明\033[0m"
-	echo -e ""
-	echo -e "\033[1;34m这个版本为Shirley后期修复编写，并且它只支持CentOS7 X64 !!! \033[0m"
-	echo -e ""
-	echo -e "\033[1;34m具体的更新日志请访问 https://github.com/Shirley-Jones/daloradius-boya/blob/main/Update_log.md \033[0m"
-	echo -e ""
+	echo "Welcome to use Boya Installation Starter"
+	echo
 	echo "请根据下方提示输入相对应序号："
 	echo "1.安装博雅DALO最新版"
 	echo "2.安装博雅DALO历史版"
