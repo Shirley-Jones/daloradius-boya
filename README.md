@@ -5,6 +5,7 @@
 * CPU/内存：1核512M (512M内存 推荐使用CentOS7系统)
 * 带宽：推荐5Mbps以上
 * 网络：必须具有固定公网IP (IPV4)
+* 经过测试通过的系统版本 Ubuntu20.04、Ubuntu22.04、Debian11、Debian12、CentOS7 (尽量不要使用老系统,CentOS7除外~)
 
 ## 更新日志
 * 新版本支持Ubuntu、Debian、CentOS，freeradius3.0，修复了超多问题!!!详细点击下方链接
