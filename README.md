@@ -42,8 +42,6 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 
 
 ## 用户流量监控文件说明
-* 编译说明
-
 > CentOS7 
 * 先安装支持库: yum install mariadb-devel curl libcurl-devel openssl openssl-devel gcc gcc++ gdb -y
 * 编译 gcc -std=gnu99 监控源码文件 -o 编译后的文件名 -L/usr/lib64/mysql/ -lmysqlclient -lcurl -lcrypto
