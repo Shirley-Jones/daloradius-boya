@@ -35,9 +35,8 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 * 博雅DALO流控官网: https://www.52hula.cn (已下线)
 
 ## 关于源码
-* 项目基于博雅Dalo开源而来，我个人没有加入任何后门，脚本已全部开源，欢迎检查，不放心的不要用，谢谢！
-* Proxy代理文件基于 FAS的Proxy代理 (这个是C语言文件 FAS作者: 筑梦冬瓜 没有开放源码，我也没有!!!)
-* 用户流量监控已开源，如果你需要重新编译详情下方
+* 项目基于博雅Dalo开源而来，我个人没有加入任何后门，脚本已全部开源(包括C文件)，欢迎检查，不放心的不要用，谢谢！
+* 用户流量监控已开源，如果你需要二开重新编译详情下方
 
 
 
