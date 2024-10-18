@@ -87,15 +87,18 @@ Download_address_selection()
 		read -p "请选择[1-2]: " Download_address_Option
 	done
 	
-	if [[ ${Download_address_Option} == "1" ]];then
-		echo "已选择【${Download_Host_One_Name}】"
-		Download_Host=${Download_Host_One}
-	fi
-	
-	if [[ ${Download_address_Option} == "2" ]];then
-		echo "已选择【${Download_Host_Two_Name}】"
-		Download_Host=${Download_Host_Two}
-	fi
+	while [[ ${Download_address_Option} == "1" ]] || [[ ${Download_address_Option} == "2" ]]; do
+    if [[ ${Download_address_Option} == "1" ]]; then
+        echo "已选择【${Download_Host_One_Name}】"
+        Download_Host=${Download_Host_One}
+    elif [[ ${Download_address_Option} == "2" ]]; then
+        echo "已选择【${Download_Host_Two_Name}】"
+        Download_Host=${Download_Host_Two}
+    else
+        echo "程序逻辑错误，脚本已被终止..."
+        exit 1
+    fi
+	done
 	
 	return 0;
 	
