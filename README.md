@@ -43,21 +43,24 @@ wget --no-check-certificate -O Boya_Launcher.sh https://raw.githubusercontent.co
 
 ## 用户流量监控文件说明
 * 编译说明
-* CentOS7 
+
+> CentOS7 
 * 先安装支持库: yum install mariadb-devel curl libcurl-devel openssl openssl-devel gcc gcc++ gdb -y
 * 编译 gcc -std=gnu99 监控源码文件 -o 编译后的文件名 -L/usr/lib64/mysql/ -lmysqlclient -lcurl -lcrypto
 * 举个例子 gcc -std=gnu99 /Shirley/Core/ZeroAUTH.c -o /Shirley/Core/ZeroAUTH.bin -L/usr/lib64/mysql/ -lmysqlclient -lcurl -lcrypto
+----
 
-* Ubuntu
+> Ubuntu
 * 先安装支持库: yum install libmysqlclient-dev libcurl4-openssl-dev gcc gdb g++ openssl -y
 * 编译 gcc -o 编译后的文件名 监控源码文件 -lmysqlclient -lcurl -lcrypto
 * 举个例子 gcc -o /Shirley/Core/ZeroAUTH.bin /Shirley/Core/ZeroAUTH.c -lmysqlclient -lcurl -lcrypto
+----
 
-* Debian 
+> Debian 
 * 先安装支持库: yum install libmariadb-dev-compat libmariadb-dev libcurl4-openssl-dev gcc gdb g++ openssl -y
 * 编译 gcc -o 编译后的文件名 监控源码文件 -lmysqlclient -lcurl -lcrypto
 * 举个例子 gcc -o /Shirley/Core/ZeroAUTH.bin /Shirley/Core/ZeroAUTH.c -lmysqlclient -lcurl -lcrypto
-
+----
 
   
 ## 温馨提醒
