@@ -73,31 +73,33 @@ Download_address_selection()
 	fi
 	
 	
-	echo
-	echo "请选择下载节点"
-	echo -e "1、${Download_Host_One_Name} ${Delay_One}"
-	echo -e "2、${Download_Host_Two_Name} ${Delay_Two}"
-	read -p "请选择[1-2]: " Download_address_Option
-	while [[ ${Download_address_Option} == "" ]]
-	do
-		echo -e "\033[31m检测到下载节点没有选择，请重新尝试！\033[0m"
+	# 使用无限循环来不断提示用户输入
+	while true; do
+		# 提示用户选择下载地址
+		echo
 		echo "请选择下载节点"
 		echo -e "1、${Download_Host_One_Name} ${Delay_One}"
 		echo -e "2、${Download_Host_Two_Name} ${Delay_Two}"
 		read -p "请选择[1-2]: " Download_address_Option
-	done
-	
-	while [[ ${Download_address_Option} == "1" ]] || [[ ${Download_address_Option} == "2" ]]; do
-    if [[ ${Download_address_Option} == "1" ]]; then
-        echo "已选择【${Download_Host_One_Name}】"
-        Download_Host=${Download_Host_One}
-    elif [[ ${Download_address_Option} == "2" ]]; then
-        echo "已选择【${Download_Host_Two_Name}】"
-        Download_Host=${Download_Host_Two}
-    else
-        echo "程序逻辑错误，脚本已被终止..."
-        exit 1
-    fi
+
+		# 检查用户输入是否为空白
+		if [[ -z ${Download_address_Option} ]]; then
+			echo "输入不能为空，请重新选择！"
+			continue
+		fi
+
+		# 检查用户输入是否为有效选项
+		if [[ ${Download_address_Option} == "1" ]]; then
+			echo "已选择【${Download_Host_One_Name}】"
+			Download_Host=${Download_Host_One}
+			break  # 跳出循环
+		elif [[ ${Download_address_Option} == "2" ]]; then
+			echo "已选择【${Download_Host_Two_Name}】"
+			Download_Host=${Download_Host_Two}
+			break  # 跳出循环
+		else
+			echo "输入错误，请重新选择！"
+		fi
 	done
 	
 	return 0;
@@ -374,7 +376,7 @@ Install_boya_daloradius_guide()
 		fi
 		echo 
 		echo "Tips:"
-		echo "后台管理路径如果不懂什么意思请直接输入 admin 即可！乱输入会导致不能打开后台!!!"
+		echo "后台管理路径如果不懂什么意思请直接输入“admin”即可！乱输入会导致不能打开后台!!!"
 		echo
 		read -p "请设置后台管理路径: " DaloRadius_file
 		while [[ ${DaloRadius_file} == "" ]]
@@ -530,6 +532,9 @@ Install_boya_daloradius()
 	
 	echo
 	echo -e "\033[1;34m-------------安装过程中如果没有报错就请耐心等待-------------\033[0m"
+	echo -e "\033[1;34mSystem information\033[0m"
+	echo -e "\033[1;34mLinux: ${Linux_OS} $Linux_Version\033[0m"
+	echo -e "\033[1;34mRAM: ${ALL_RAM_free}MB\033[0m"
 	sleep 3
 	echo
 	echo
