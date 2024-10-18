@@ -9,6 +9,7 @@
 * 删除了Abnormal_scanning文件
 * 删除了FAS Proxy,现在代替的Proxy拥有与FAS Proxy一样的功能,它同样也支持每个Openvpn配置的IP循环分配
 * 删除了openvpn限速文件
+* 修改了openvpn udp配置文件的端口为udp54,原先udp53端口与Ubuntu系统中的dns程序冲突.
 * 更新了openvpn配置文件,支持openvpn2.5+ (博雅20240520版本的配置文件会导致openvpn2.5版本无法启动)
 * 更新了radiusplugin文件,支持openvpn2.5+ (原版文件会导致openvpn2.5版本无法与radius服务器通讯)
 * 接下来应该不会有更新了(除了bug会修复)
